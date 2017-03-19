@@ -1,0 +1,1 @@
+<p>Copyright Piotr Gębura - All Rights Reserved</p>
