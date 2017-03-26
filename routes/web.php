@@ -27,3 +27,4 @@ Route::get('/about', 'PagesController@getAbout');
 Route::get('/contact', 'PagesController@getContact');
 Route::get('/', 'PagesController@getIndex');
 Route::resource('doctors', 'DoctorController');
+Route::resource('specializations', 'SpecializationController', ['except' => ['create']]);

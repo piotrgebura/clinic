@@ -8,17 +8,20 @@
 		{!! Form::model($doctor, ['route' => ['doctors.update', $doctor->id], 'method' => 'PUT']) !!}
 		<div class="col-md-8">
 			<h1>Edycja lekarza</h1>
-			<hr>
-			{{ Form::label('academic_title', "Tytuł:") }}
+			<hr />
+			{{ Form::label('academic_title', 'Tytuł:') }}
 			{{ Form::text('academic_title', null, ['class' => 'form-control']) }}
 				
-			{{ Form::label('first_name', "Imię:") }}
+			{{ Form::label('first_name', 'Imię:') }}
 			{{ Form::text('first_name', null, ['class' => 'form-control']) }}
 				
-			{{ Form::label('last_name', "Nazwisko:") }}
+			{{ Form::label('last_name', 'Nazwisko:') }}
 			{{ Form::text('last_name', null, ['class' => 'form-control']) }}
+
+			{{ Form::label('specialization_id', 'Specjalizacja') }}
+			{{ Form::select('specialization_id', $specializations, null, ['class' => 'form-control']) }}
 				
-			{{ Form::label('description', "Opis:") }}
+			{{ Form::label('description', 'Opis:') }}
 			{{ Form::textarea('description', null, ['class' => 'form-control']) }}
 		</div>
 		
