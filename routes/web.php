@@ -15,7 +15,7 @@ Route::get('/auth/login', ['as' => 'login', 'uses' => 'Auth\LoginController@show
 Route::post('/auth/login', 'Auth\LoginController@login');
 Route::get('/auth/logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
 
-Route::get('/auth/register', 'Auth\RegisterController@showRegistrationForm');
+Route::get('/auth/register', ['as' => 'register', 'uses' => 'Auth\RegisterController@showRegistrationForm']);
 Route::post('/auth/register', 'Auth\RegisterController@register');
 
 Route::get('/password/reset', ['as' => 'password.request', 'uses' => 'Auth\ForgotPasswordController@showLinkRequestForm']);
@@ -25,6 +25,7 @@ Route::post('/password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get('/about', 'PagesController@getAbout');
 Route::get('/contact', 'PagesController@getContact');
+Route::post('/contact', 'PagesController@postContact');
 Route::get('/', 'PagesController@getIndex');
 Route::resource('doctors', 'DoctorController');
 Route::resource('specializations', 'SpecializationController', ['except' => ['create']]);

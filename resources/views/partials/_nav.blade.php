@@ -21,23 +21,26 @@
       
       <ul class="nav navbar-nav navbar-right">
         @if (Auth::check())
-
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Moje konto <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="{{ route('doctors.index') }}">Lekarze</a></li>
-              <li><a href="{{ route('specializations.index') }}">Specjalizacje</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="{{ route('logout') }}">Wyloguj</a></li>
-            </ul>
-          </li>
-
+          
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Moje konto <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="{{ route('doctors.index') }}">Lekarze</a></li>
+                <li><a href="{{ route('specializations.index') }}">Specjalizacje</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="{{ route('logout') }}">Wyloguj</a></li>
+              </ul>
+            </li>
+          </ul>
+          
         @else
-
-          <a href="{{ route('login') }}" class="btn btn-default">Zaloguj</a>
+            
+            <li><a href="{{ route('register') }}">Zarejestruj</a></li>
+            <li><a href="{{ route('login') }}">Zaloguj</a></li>
 
         @endif
       </ul>
+      
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

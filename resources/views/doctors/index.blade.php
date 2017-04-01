@@ -10,7 +10,7 @@
 		</div>
 
 		<div class="col-md-2">
-			{{ Html::linkRoute('doctors.create', 'Dodaj lekarza', null, ['class' => 'btn btn-lg btn-block btn-primary btn-h1-spacing']) }}
+			{{ Html::linkRoute('doctors.create', 'Dodaj lekarza', array(), ['class' => 'btn btn-lg btn-block btn-primary btn-h1-spacing']) }}
 		</div>
 
 		<div class="col-md-12">
@@ -39,7 +39,7 @@
 						<td>{{ $doctor->first_name }}</td>
 						<td>{{ $doctor->last_name }}</td>
 						<td>{{ $doctor->specialization ? $doctor->specialization->name : '' }}</td>
-						<td>{{ substr($doctor->description, 0, 50) }}{{ strlen($doctor->description) > 50 ? "..." : "" }}</td>
+						<td>{{ substr(strip_tags($doctor->description), 0, 50) }}{{ strlen(strip_tags($doctor->description)) > 50 ? "..." : "" }}</td>
 						<td>{{ date('Y-m-d', strtotime($doctor->created_at)) }}</td>
 						<td>
 							{{ Html::linkRoute('doctors.show', 'Podgląd', ['id' => $doctor->id], ['class' => 'btn btn-default btn-sm']) }}

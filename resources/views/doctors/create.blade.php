@@ -2,6 +2,18 @@
 
 @section('title', '- Dodaj lekarza')
 
+@section('stylesheets')
+
+	<script src="http://cloud.tinymce.com/stable/tinymce.min.js?apiKey=znjtut6mq3djgzgcsiu7tk54sn2tcp4dhpkaowuz4d2cc2y8"></script>
+	
+	<script>
+		tinymce.init({
+			selector: 'textarea'
+		});
+	</script>
+
+@endsection
+
 @section('content')
 	
 	<div class="row">
