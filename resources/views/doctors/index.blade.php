@@ -42,8 +42,8 @@
 						<td>{{ substr(strip_tags($doctor->description), 0, 50) }}{{ strlen(strip_tags($doctor->description)) > 50 ? "..." : "" }}</td>
 						<td>{{ date('Y-m-d', strtotime($doctor->created_at)) }}</td>
 						<td>
-							{{ Html::linkRoute('doctors.show', 'Podgląd', ['id' => $doctor->id], ['class' => 'btn btn-default btn-sm']) }}
-							{{ Html::linkRoute('doctors.edit', 'Edytuj', ['id' => $doctor->id], ['class' => 'btn btn-default btn-sm']) }}
+							{!! Html::linkRoute('doctors.show', 'Podgląd', ['id' => $doctor->id], ['class' => 'btn btn-default btn-sm']) !!}
+							{!! Html::linkRoute('doctors.edit', 'Edytuj', ['id' => $doctor->id], ['class' => 'btn btn-default btn-sm']) !!}
 						</td>
 					</tr>
 				@endforeach

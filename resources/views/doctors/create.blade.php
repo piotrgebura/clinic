@@ -21,27 +21,31 @@
 			<h1>Dodawanie nowego lekarza</h1>
 			<hr />
 
-			{!! Form::open(['route' => 'doctors.store']) !!}
-				{{ Form::label('academic_title', 'Tytuł:') }}
-				{{ Form::text('academic_title', null, ['class' => 'form-control']) }}
+			{!! Form::open(['route' => 'doctors.store', 'files' => true]) !!}
+				{!! Form::label('academic_title', 'Tytuł:') !!}
+				{!! Form::text('academic_title', null, ['class' => 'form-control']) !!}
 				
-				{{ Form::label('first_name', 'Imię:') }}
-				{{ Form::text('first_name', null, ['class' => 'form-control']) }}
+				{!! Form::label('first_name', 'Imię:') !!}
+				{!! Form::text('first_name', null, ['class' => 'form-control']) !!}
 				
-				{{ Form::label('last_name', 'Nazwisko:') }}
-				{{ Form::text('last_name', null, ['class' => 'form-control']) }}
+				{!! Form::label('last_name', 'Nazwisko:') !!}
+				{!! Form::text('last_name', null, ['class' => 'form-control']) !!}
 
-				{{ Form::label('specialization_id', 'Specjalizacja') }}
+				{!! Form::label('specialization_id', 'Specjalizacja') !!}
 				<select name="specialization_id" class="form-control">
+					<option value="null"></option>
 					@foreach ($specializations as $specialization)
 						<option value="{{ $specialization->id }}">{{ $specialization->name }}</option>
 					@endforeach
 				</select>
 				
-				{{ Form::label('description', 'Opis:') }}
-				{{ Form::textarea('description', null, ['class' => 'form-control']) }}
+				{!! Form::label('image', 'Zdjęcie') !!}
+				{!! Form::file('image') !!}
+
+				{!! Form::label('description', 'Opis:') !!}
+				{!! Form::textarea('description', null, ['class' => 'form-control']) !!}
 				
-				{{ Form::submit('Dodaj', ['class' => 'btn btn-success btn-lg btn-block btn-h1-spacing']) }}
+				{!! Form::submit('Dodaj', ['class' => 'btn btn-success btn-lg btn-block btn-h1-spacing']) !!}
 			{!! Form::close() !!}
 		</div>
 

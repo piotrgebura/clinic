@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Doctor;
 use App\Specialization;
 use Session;
+use Image;
+use Purifier;
+use Storage;
 
 class DoctorController extends Controller
 {
@@ -46,10 +49,11 @@ class DoctorController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, array(
-        		'academic_title' => 'max:32',
-        		'first_name' => 'required|max:64',
-        		'last_name' => 'required|max:64',
-                //'specialization_id' => 'required|integer'
+        		'academic_title'    => 'max:32',
+        		'first_name'        => 'required|max:64',
+        		'last_name'         => 'required|max:64',
+                'image'             => 'sometimes|image',
+                'specialization_id' => 'nullable|integer'
         ));
     	
     	$doctor = new Doctor();
@@ -58,8 +62,19 @@ class DoctorController extends Controller
         $doctor->first_name = $request->first_name;
         $doctor->last_name = $request->last_name;
         $doctor->specialization_id = $request->specialization_id;
-        $doctor->description = $request->description;
+        $doctor->description = Purifier::clean($request->description);
         
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time().'.'.$image->getClientOriginalExtension();
+            $location = public_path('images/'.$filename);
+            Image::make($image)->resize(300, null, function ($constraint) {
+                                            $constraint->aspectRatio();
+                                        })->save($location);
+
+            $doctor->image = $filename;
+        }
+
         $doctor->save();
         
         Session::flash('success', 'Lekarz został dodany do bazy danych.');
@@ -108,19 +123,33 @@ class DoctorController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, array(
-                'academic_title' => 'max:32',
-                'first_name' => 'required|max:64',
-                'last_name' => 'required|max:64',
-                //'specialization_id' => 'required|integer'
+                'academic_title'    => 'max:32',
+                'first_name'        => 'required|max:64',
+                'last_name'         => 'required|max:64',
+                'image'             => 'sometimes|image',
+                'specialization_id' => 'nullable|integer'
         ));
 
         $doctor = Doctor::find($id);
         
-        $doctor->academic_title = $request->input('academic_title');
-        $doctor->first_name = $request->input('first_name');
-        $doctor->last_name = $request->input('last_name');
-        $doctor->specialization_id = $request->input('specialization_id');
-        $doctor->description = $request->input('description');
+        $doctor->academic_title = $request->academic_title;
+        $doctor->first_name = $request->first_name;
+        $doctor->last_name = $request->last_name;
+        $doctor->specialization_id = $request->specialization_id;
+        $doctor->description = Purifier::clean($request->description);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time().'.'.$image->getClientOriginalExtension();
+            $location = public_path('images/'.$filename);
+            Image::make($image)->resize(300, null, function ($constraint) {
+                                            $constraint->aspectRatio();
+                                        })->save($location);
+
+            $old_filename = $doctor->image;
+            $doctor->image = $filename;
+            Storage::delete($old_filename);
+        }
         
         $doctor->save();
         
@@ -138,6 +167,8 @@ class DoctorController extends Controller
     public function destroy($id)
     {
         $doctor = Doctor::find($id);
+
+        Storage::delete($doctor->image);
         
         $doctor->delete();
         

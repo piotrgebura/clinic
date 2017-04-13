@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddSpecializationIdToDoctors extends Migration
+class AddImageColumnToDoctors extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,7 @@ class AddSpecializationIdToDoctors extends Migration
     public function up()
     {
         Schema::table('doctors', function (Blueprint $table) {
-            $table->integer('specialization_id')->nullable()->after('id')->unsigned();
-
-            $table->foreign('specialization_id')->references('id')->on('specializations');
+            $table->string('image', 32)->nullable()->after('description');
         });
     }
 
@@ -28,8 +26,7 @@ class AddSpecializationIdToDoctors extends Migration
     public function down()
     {
         Schema::table('doctors', function (Blueprint $table) {
-            $table->dropForeign(['specialization_id']);
-            $table->dropColumn('specialization_id');
+            $table->dropColumn('image');
         });
     }
 }

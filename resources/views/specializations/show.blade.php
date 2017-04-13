@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title', '- '.$specialization->name)
+@section('title', "- $specialization->name")
 
 @section('content')
 	
@@ -15,7 +15,7 @@
 
 		<div class="col-md-2">
 			{!! Form::open(['route' => ['specializations.destroy', $specialization->id], 'method' => 'DELETE']) !!}
-				{{ Form::submit('Usuń', ['class' => 'btn btn-danger btn-block btn-h1-spacing']) }}
+				{!! Form::submit('Usuń', ['class' => 'btn btn-danger btn-block btn-h1-spacing']) !!}
 			{!! Form::close() !!}
 		</div>
 	</div>
@@ -39,8 +39,8 @@
 							<td>{{ $doctor->first_name }}</td>
 							<td>{{ $doctor->last_name }}</td>
 							<td>
-								{{ Html::linkRoute('doctors.show', 'Podgląd', ['id' => $doctor->id], ['class' => 'btn btn-default btn-xs']) }}
-								{{ Html::linkRoute('doctors.edit', 'Edytuj', ['id' => $doctor->id], ['class' => 'btn btn-default btn-xs']) }}
+								{!! Html::linkRoute('doctors.show', 'Podgląd', ['id' => $doctor->id], ['class' => 'btn btn-default btn-xs']) !!}
+								{!! Html::linkRoute('doctors.edit', 'Edytuj', ['id' => $doctor->id], ['class' => 'btn btn-default btn-xs']) !!}
 							</td>
 						</tr>
 					@endforeach

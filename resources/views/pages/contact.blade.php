@@ -15,7 +15,7 @@
 		    <h1>Formularz kontaktowy</h1>
 		    <hr />
 		    <form action="{{ url('contact') }}" method="POST">
-		        {{ csrf_field() }}
+		        {!! csrf_field() !!}
 		       
 	            <label name="email">Email:</label>
 	            <input id="email" name="email" class="form-control">

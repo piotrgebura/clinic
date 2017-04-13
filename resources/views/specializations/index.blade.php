@@ -20,8 +20,8 @@
 							<th>{{ $specialization->id }}</th>
 							<td>{{ $specialization->name }}</td>
 							<td>
-								{{ Html::linkRoute('specializations.show', 'Podgląd', ['id' => $specialization->id], ['class' => 'btn btn-default btn-sm']) }}
-								{{ Html::linkRoute('specializations.edit', 'Edytuj', ['id' => $specialization->id], ['class' => 'btn btn-default btn-sm']) }}
+								{!! Html::linkRoute('specializations.show', 'Podgląd', ['id' => $specialization->id], ['class' => 'btn btn-default btn-sm']) !!}
+								{!! Html::linkRoute('specializations.edit', 'Edytuj', ['id' => $specialization->id], ['class' => 'btn btn-default btn-sm']) !!}
 							</td>
 						</tr>
 					@endforeach
@@ -34,10 +34,10 @@
 			<div class="well">
 				<h2>Nowa specjalizacja</h2>			
 				{!! Form::open(['route' => ['specializations.store'], 'method' => 'POST']) !!}
-					{{ Form::label('name', 'Nazwa:') }}
-					{{ Form::text('name', null, ['class' => 'form-control']) }}
+					{!! Form::label('name', 'Nazwa:') !!}
+					{!! Form::text('name', null, ['class' => 'form-control']) !!}
 
-					{{ Form::submit('Dodaj nową specjalizację', ['class' => 'btn btn-primary btn-block btn-h1-spacing']) }}
+					{!! Form::submit('Dodaj nową specjalizację', ['class' => 'btn btn-primary btn-block btn-h1-spacing']) !!}
 				{!! Form::close() !!}
 			</div>
 		</div>
