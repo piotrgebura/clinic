@@ -27,7 +27,7 @@
 
 				<div class="row">
 					<div class="col-md-12">
-						{!! Html::linkRoute('doctors.index', '<< Powrót do listy', [], ['class' => 'btn btn-default btn-block btn-h1-spacing']) !!}
+						{!! Html::linkRoute('doctors.index', '<< Powrót do listy', [], ['class' => 'btn btn-default btn-block btn-default-top-spacing']) !!}
 					</div>
 				</div>
 			</div>

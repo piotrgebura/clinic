@@ -28,7 +28,7 @@
 
 	            <div class="g-recaptcha btn-h1-spacing" data-sitekey="6LcwLxsUAAAAACMifOC841RhlpjhmSSXUyqGyjUe"></div>
 		        
-		        <input type="submit" value="Wyślij wiadomość" class="btn btn-success btn-lg btn-block btn-h1-spacing">
+		        <input type="submit" value="Wyślij wiadomość" class="btn btn-success btn-lg btn-block btn-default-top-spacing">
 		    </form>
 		</div>
 	</div>

@@ -10,12 +10,12 @@
 		</div>
 
 		<div class="col-md-2">
-			<a href="{{ route('specializations.edit', $specialization->id) }}" class="btn btn-block btn-primary pull-right btn-h1-spacing">Edycja</a>
+			<a href="{{ route('specializations.edit', $specialization->id) }}" class="btn btn-block btn-primary pull-right btn-default-top-spacing">Edycja</a>
 		</div>
 
 		<div class="col-md-2">
 			{!! Form::open(['route' => ['specializations.destroy', $specialization->id], 'method' => 'DELETE']) !!}
-				{!! Form::submit('Usuń', ['class' => 'btn btn-danger btn-block btn-h1-spacing']) !!}
+				{!! Form::submit('Usuń', ['class' => 'btn btn-danger btn-block btn-default-top-spacing']) !!}
 			{!! Form::close() !!}
 		</div>
 	</div>
