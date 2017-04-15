@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Mail;
+use App\Mail\Contact;
 use Session;
 use GuzzleHttp\Client;
 
@@ -46,18 +47,9 @@ class PagesController extends Controller
 
 			$result = json_decode($response->getBody()->getContents());
 			if ($result->success) {
-				$data = array(
-					'email' => $request->email,
-					'subject' => $request->subject,
-					'body_message' => $request->message
-				);
-			
-				Mail::send('emails.contact', $data, function($message) use ($data){
-					$message->from($data['email']);
-					$message->to('piotr.gebura@gmail.com');
-					$message->subject($data['subject']);
-				});
-			
+		
+				Mail::to('piotr.gebura@gmail.com')->send(new Contact($request->email, $request->subject, $request->message));
+
 				Session::flash('success', 'Twój email został wysłany!');
 
 				return redirect('/');

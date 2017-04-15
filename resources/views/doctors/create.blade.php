@@ -45,7 +45,7 @@
 				{!! Form::label('description', 'Opis:') !!}
 				{!! Form::textarea('description', null, ['class' => 'form-control']) !!}
 				
-				{!! Form::submit('Dodaj', ['class' => 'btn btn-success btn-lg btn-block btn-h1-spacing']) !!}
+				{!! Form::submit('Dodaj', ['class' => 'btn btn-success btn-lg btn-block btn-default-top-spacing']) !!}
 			{!! Form::close() !!}
 		</div>
 

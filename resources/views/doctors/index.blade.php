@@ -10,7 +10,7 @@
 		</div>
 
 		<div class="col-md-2">
-			{{ Html::linkRoute('doctors.create', 'Dodaj lekarza', array(), ['class' => 'btn btn-lg btn-block btn-primary btn-h1-spacing']) }}
+			{{ Html::linkRoute('doctors.create', 'Dodaj lekarza', array(), ['class' => 'btn btn-lg btn-block btn-primary btn-default-top-spacing']) }}
 		</div>
 
 		<div class="col-md-12">
