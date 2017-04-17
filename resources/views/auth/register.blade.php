@@ -21,7 +21,7 @@
 			{{ Form::label('password_confirmation', "Potwierdź hasło:") }}
 			{{ Form::password('password_confirmation', ['class' => 'form-control']) }}
 			
-			{{ Form::submit('Zarejestruj', ['class' => 'btn btn-primary btn-block btn-h1-spacing']) }}
+			{{ Form::submit('Zarejestruj', ['class' => 'btn btn-primary btn-block btn-default-top-spacing']) }}
 		{!! Form::close() !!}
 	</div>
 

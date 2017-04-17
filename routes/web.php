@@ -23,10 +23,15 @@ Route::post('/password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail
 Route::get('/password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('/password/reset', 'Auth\ResetPasswordController@reset');
 
+Route::prefix('admin')->group(function(){
+	Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+	Route::post('/login', 'Auth\AdminLoginController@login');
+});
+
 Route::get('/about', 'PagesController@getAbout');
 Route::get('/contact', 'PagesController@getContact');
 Route::post('/contact', 'PagesController@postContact');
-Route::get('/', 'PagesController@getIndex');
+Route::get('/', 'PagesController@getIndex')->name('home');
 Route::resource('doctors', 'DoctorController');
 Route::resource('specializations', 'SpecializationController', ['except' => ['create']]);
 Route::resource('facilities', 'FacilityController');

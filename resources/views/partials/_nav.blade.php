@@ -20,10 +20,10 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        @if (Auth::check())
+        @if (Auth::guard('admin')->check())
           
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Moje konto <span class="caret"></span></a>
+          <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Moje konto (admin) <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="{{ route('doctors.index') }}">Lekarze</a></li>
                 <li><a href="{{ route('specializations.index') }}">Specjalizacje</a></li>
@@ -32,8 +32,17 @@
                 <li><a href="{{ route('logout') }}">Wyloguj</a></li>
               </ul>
             </li>
-          </ul>
+        @elseif (Auth::guard('web')->check())
           
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Moje konto <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li role="separator" class="divider"></li>
+                <li><a href="{{ route('logout') }}">Wyloguj</a></li>
+              </ul>
+            </li>
+          </ul>
+
         @else
             
             <li><a href="{{ route('register') }}">Zarejestruj</a></li>
