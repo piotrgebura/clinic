@@ -3,25 +3,10 @@
 @section('title', "- $specialization->name")
 
 @section('content')
-	
+
 	<div class="row">
 		<div class="col-md-8">
 			<h1>{{ $specialization->name }} <small>{{ $specialization->doctors()->count() }} lekarz(y)</small> </h1>
-		</div>
-
-		<div class="col-md-2">
-			<a href="{{ route('specializations.edit', $specialization->id) }}" class="btn btn-block btn-primary pull-right btn-default-top-spacing">Edycja</a>
-		</div>
-
-		<div class="col-md-2">
-			{!! Form::open(['route' => ['specializations.destroy', $specialization->id], 'method' => 'DELETE']) !!}
-				{!! Form::submit('Usuń', ['class' => 'btn btn-danger btn-block btn-default-top-spacing']) !!}
-			{!! Form::close() !!}
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-md-12">
 			<table class="table">
 				<thead>
 					<th>Id</th>
@@ -46,6 +31,31 @@
 					@endforeach
 				</tbody>
 			</table>
+		</div>
+
+		<div class="col-md-4">
+			<div class="well">
+				<div class="row">
+					<div class="col-sm-6">
+						{!! Html::linkRoute('specializations.edit', 'Edytuj', ['id' => $specialization->id], ['class' => 'btn btn-primary btn-block']) !!}
+					</div>
+					<div class="col-sm-6">
+						{!! Form::open(['route' => ['specializations.destroy', $specialization->id], 'method' => 'DELETE']) !!}
+							{!! Form::submit('Usuń', ['class' => 'btn btn-danger btn-block']) !!}
+						{!! Form::close() !!}
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						@component('components.back_to_list_button')
+							@slot('href')
+								{{ route('specializations.index') }}
+							@endslot
+						@endcomponent
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 

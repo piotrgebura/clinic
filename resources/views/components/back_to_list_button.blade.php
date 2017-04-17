@@ -1,0 +1,1 @@
+<a href="{{ $href }}" class="btn btn-default btn-block btn-default-top-spacing"><< Powrót do listy</a>

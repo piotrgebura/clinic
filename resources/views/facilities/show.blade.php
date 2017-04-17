@@ -7,21 +7,6 @@
 	<div class="row">
 		<div class="col-md-8">
 			<h1>{{ $facility->city }} <small>{{ $facility->address }}</small></h1>
-		</div>
-
-		<div class="col-md-2">
-			<a href="{{ route('facilities.edit', $facility->id) }}" class="btn btn-block btn-primary pull-right btn-default-top-spacing">Edycja</a>
-		</div>
-
-		<div class="col-md-2">
-			{!! Form::open(['route' => ['facilities.destroy', $facility->id], 'method' => 'DELETE']) !!}
-				{!! Form::submit('Usuń', ['class' => 'btn btn-danger btn-block btn-default-top-spacing']) !!}
-			{!! Form::close() !!}
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-md-12">
 			<table class="table">
 				<thead>
 					<th>Id</th>
@@ -48,6 +33,31 @@
 					@endforeach
 				</tbody>
 			</table>
+		</div>
+
+		<div class="col-md-4">
+			<div class="well">
+				<div class="row">
+					<div class="col-sm-6">
+						{!! Html::linkRoute('facilities.edit', 'Edytuj', ['id' => $facility->id], ['class' => 'btn btn-primary btn-block']) !!}
+					</div>
+					<div class="col-sm-6">
+						{!! Form::open(['route' => ['facilities.destroy', $facility->id], 'method' => 'DELETE']) !!}
+							{!! Form::submit('Usuń', ['class' => 'btn btn-danger btn-block']) !!}
+						{!! Form::close() !!}
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						@component('components.back_to_list_button')
+							@slot('href')
+								{{ route('facilities.index') }}
+							@endslot
+						@endcomponent
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 

@@ -40,12 +40,15 @@
 
 				<div class="row">
 					<div class="col-md-12">
-						{!! Html::linkRoute('doctors.index', '<< Powrót do listy', [], ['class' => 'btn btn-default btn-block btn-default-top-spacing']) !!}
+						@component('components.back_to_list_button')
+							@slot('href')
+								{{ route('doctors.index') }}
+							@endslot
+						@endcomponent
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 
 @endsection
