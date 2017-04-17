@@ -10,7 +10,7 @@
 			<h3><span class="label label-default">{{ $doctor->specialization ? $doctor->specialization->name : '' }}</span></h3>
 			
 			@if ($doctor->image)
-				<img src="{{ asset("images/$doctor->image") }}" class="doctor-image" />
+				<img src="{{ asset("images/$doctor->image") }}" class="doctor-image pull-left" />
 			@endif
 		
 			<p class="dector-description">{!! $doctor->description !!}</p>

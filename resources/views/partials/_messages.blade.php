@@ -1,7 +1,7 @@
 @if (Session::has('success'))
 
 	<div class="alert alert-success" role="alert">
-		Success: {{ Session::get('success') }}
+		Sukces: {{ Session::get('success') }}
 	</div>
 	
 @endif
@@ -9,7 +9,7 @@
 @if (count($errors) > 0)
 
 	<div class="alert alert-danger" role="alert">
-		Errors:
+		Błędy:
 		<ul>
 		@foreach ($errors->all() as $error)
 			<li>{{ $error }}</li>
