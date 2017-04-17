@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Doctor;
 use App\Specialization;
+use App\Facility;
 use Session;
 use Image;
 use Purifier;
@@ -37,7 +38,9 @@ class DoctorController extends Controller
     public function create()
     {
         $specializations = Specialization::all();
-        return view('doctors.create', ['specializations' => $specializations]);
+        $facilities = Facility::all();
+
+        return view('doctors.create', ['specializations' => $specializations, 'facilities' => $facilities]);
     }
 
     /**
@@ -76,6 +79,8 @@ class DoctorController extends Controller
         }
 
         $doctor->save();
+
+        $doctor->facilities()->sync($request->facilities);
         
         Session::flash('success', 'Lekarz został dodany do bazy danych.');
 
@@ -109,8 +114,14 @@ class DoctorController extends Controller
         foreach ($specializations as $specialization) {
             $specializations_choice[$specialization->id] = $specialization->name;
         }
+
+        $facilities = Facility::all();
+        $facilities_choice = array();
+        foreach ($facilities as $facility) {
+            $facilities_choice[$facility->id] = $facility->city.' '.$facility->address;
+        }
     	 
-    	return view('doctors.edit', ['doctor' => $doctor, 'specializations' => $specializations_choice]);
+    	return view('doctors.edit', ['doctor' => $doctor, 'specializations' => $specializations_choice, 'facilities' => $facilities_choice]);
     }
 
     /**
@@ -152,6 +163,13 @@ class DoctorController extends Controller
         }
         
         $doctor->save();
+
+        if (isset($request->facilities)) {
+            $facilities = $request->facilities;
+        } else {
+            $facilities = array();
+        }
+        $doctor->facilities()->sync($facilities);
         
         Session::flash('success', 'Dane lekarza zostały zaktualizowane.');
         
@@ -167,6 +185,7 @@ class DoctorController extends Controller
     public function destroy($id)
     {
         $doctor = Doctor::find($id);
+        $doctor->facilities()->detach();
 
         Storage::delete($doctor->image);
         

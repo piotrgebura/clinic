@@ -2,7 +2,7 @@
 
 @section('title', '- Kontakt')
 
-@section('stylesheets')
+@section('top_javascripts')
 
 	<script src='https://www.google.com/recaptcha/api.js'></script>
 

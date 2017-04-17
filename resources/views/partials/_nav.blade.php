@@ -27,6 +27,7 @@
               <ul class="dropdown-menu">
                 <li><a href="{{ route('doctors.index') }}">Lekarze</a></li>
                 <li><a href="{{ route('specializations.index') }}">Specjalizacje</a></li>
+                <li><a href="{{ route('facilities.index') }}">Placówki</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="{{ route('logout') }}">Wyloguj</a></li>
               </ul>

@@ -29,3 +29,4 @@ Route::post('/contact', 'PagesController@postContact');
 Route::get('/', 'PagesController@getIndex');
 Route::resource('doctors', 'DoctorController');
 Route::resource('specializations', 'SpecializationController', ['except' => ['create']]);
+Route::resource('facilities', 'FacilityController');

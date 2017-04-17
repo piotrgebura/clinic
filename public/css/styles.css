@@ -1,3 +1,18 @@
 .btn-default-top-spacing {
 	margin-top:20px;
 }
+
+.doctor-image {
+	width:300px;
+	float:left;
+	margin:0px 10px 0px 0px
+}
+
+.dector-description {
+	margin:0px
+}
+
+.doctor-facilities {
+	clear:both;
+	padding-top:10px;
+}

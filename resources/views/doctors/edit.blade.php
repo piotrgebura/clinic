@@ -4,8 +4,14 @@
 
 @section('stylesheets')
 
+	{!! Html::style('css/select2.min.css') !!}
+
+@endsection
+
+@section('top_javascripts')
+
 	<script src="http://cloud.tinymce.com/stable/tinymce.min.js?apiKey=znjtut6mq3djgzgcsiu7tk54sn2tcp4dhpkaowuz4d2cc2y8"></script>
-	
+		
 	<script>
 		tinymce.init({
 			selector: 'textarea'
@@ -32,6 +38,9 @@
 
 			{!! Form::label('specialization_id', 'Specjalizacja') !!}
 			{!! Form::select('specialization_id', $specializations, null, ['class' => 'form-control']) !!}
+
+			{!! Form::label('facilities', 'Placówki') !!}
+			{!! Form::select('facilities[]', $facilities, null, ['class' => 'form-control select2-facilities', 'multiple' => 'multiple']) !!}
 				
 			{!! Form::label('image', 'Zdjęcie') !!}
 			{!! Form::file('image') !!}
@@ -54,5 +63,16 @@
 		</div>
 		{!! Form::close() !!}
 	</div>
+
+@endsection
+
+@section('javascripts')
+
+	{!! Html::script('js/select2.min.js') !!}
+
+	<script>
+		$('.select2-facilities').select2();
+		$('.select2-facilities').select2().val({!! json_encode($doctor->facilities()->pluck('facilities.id')->toArray()) !!}).trigger('change');
+	</script>
 
 @endsection

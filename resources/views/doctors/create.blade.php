@@ -4,8 +4,14 @@
 
 @section('stylesheets')
 
+	{!! Html::style('css/select2.min.css') !!}
+
+@endsection
+
+@section('top_javascripts')
+
 	<script src="http://cloud.tinymce.com/stable/tinymce.min.js?apiKey=znjtut6mq3djgzgcsiu7tk54sn2tcp4dhpkaowuz4d2cc2y8"></script>
-	
+		
 	<script>
 		tinymce.init({
 			selector: 'textarea'
@@ -38,6 +44,13 @@
 						<option value="{{ $specialization->id }}">{{ $specialization->name }}</option>
 					@endforeach
 				</select>
+
+				{!! Form::label('facilities', 'Placówki') !!}
+				<select name="facilities[]" class="form-control select2-facilities" multiple="multiple">
+					@foreach ($facilities as $facility)
+						<option value="{{ $facility->id }}">{{ $facility->city }} {{ $facility->address }}</option>
+					@endforeach
+				</select>
 				
 				{!! Form::label('image', 'Zdjęcie') !!}
 				{!! Form::file('image') !!}
@@ -50,5 +63,15 @@
 		</div>
 
 	</div>
+
+@endsection
+
+@section('javascripts')
+
+	{!! Html::script('js/select2.min.js') !!}
+
+	<script>
+		$('.select2-facilities').select2();
+	</script>
 
 @endsection

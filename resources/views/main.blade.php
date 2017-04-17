@@ -2,6 +2,8 @@
 <html lang="en">
 	<head>
 		@include('partials._head')
+
+		@yield('top_javascripts')
 	</head>
 	
 	<body>
