@@ -28,8 +28,8 @@ Route::prefix('admin')->group(function(){
 	Route::post('/login', 'Auth\AdminLoginController@login');
 });
 
-Route::get('/about', 'PagesController@getAbout');
-Route::get('/contact', 'PagesController@getContact');
+Route::get('/about', 'PagesController@getAbout')->name('about');
+Route::get('/contact', 'PagesController@getContact')->name('contact');
 Route::post('/contact', 'PagesController@postContact');
 Route::get('/', 'PagesController@getIndex')->name('home');
 Route::resource('doctors', 'DoctorController');
