@@ -40,7 +40,7 @@ class PagesController extends Controller
 			$client = new Client();
 			$response = $client->post('https://www.google.com/recaptcha/api/siteverify', [
 					'form_params' => array(
-						'secret' => '6LcwLxsUAAAAAGqmqRqfXIlaauY7EFFMk_IJmSmD',
+						'secret' => config('google.captcha.secret_key'),
 						'response' => $token
 						)
 				]);
@@ -48,16 +48,16 @@ class PagesController extends Controller
 			$result = json_decode($response->getBody()->getContents());
 			if ($result->success) {
 		
-				Mail::to('piotr.gebura@gmail.com')->send(new Contact($request->email, $request->subject, $request->message));
+				Mail::send(new Contact($request->email, $request->subject, $request->message));
 
 				Session::flash('success', 'Twój email został wysłany!');
 
-				return redirect('/');
+				return redirect()->route('home');
 			} else {
-				return redirect('contact');
+				return redirect()->route('contact');
 			}	
 		} else {
-			return redirect('contact');
+			return redirect()->route('contact');
 		}
 	}
 }
