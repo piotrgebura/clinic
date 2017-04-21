@@ -48,7 +48,7 @@ class PagesController extends Controller
 			$result = json_decode($response->getBody()->getContents());
 			if ($result->success) {
 		
-				Mail::send(new Contact($request->email, $request->subject, $request->message));
+				Mail::to('piotr.gebura@gmail.com')->send(new Contact($request->email, $request->subject, $request->message));
 
 				Session::flash('success', 'Twój email został wysłany!');
 
