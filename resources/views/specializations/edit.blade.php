@@ -2,15 +2,21 @@
 
 @section('title', '- Edycja specjalizacji')
 
+@section('stylesheets')
+
+	{!! Html::style('css/parsley.css') !!}
+
+@endsection
+
 @section('content')
 
 	<div class="row">
-		{!! Form::model($specialization, ['route' => ['specializations.update', $specialization->id], 'method' => 'PUT']) !!}
+		{!! Form::model($specialization, ['route' => ['specializations.update', $specialization->id], 'method' => 'PUT', 'data-parsley-validate' => '']) !!}
 		<div class="col-md-8">
 			<h1>Edycja specjalizacji</h1>
 			<hr />
 			{!! Form::label('name', 'Nazwa:') !!}
-			{!! Form::text('name', null, ['class' => 'form-control']) !!}
+			{!! Form::text('name', null, ['class' => 'form-control',  'required' => '', 'maxlength' => '64']) !!}
 
 			{!! Form::label('description', 'Opis:') !!}
 			{!! Form::textarea('description', null, ['class' => 'form-control']) !!}
@@ -30,5 +36,11 @@
 		</div>
 		{!! Form::close() !!}
 	</div>
+
+@endsection
+
+@section('javascripts')
+
+	{!! Html::script('js/parsley.min.js') !!}
 
 @endsection

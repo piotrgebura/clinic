@@ -4,6 +4,7 @@
 
 @section('stylesheets')
 
+	{!! Html::style('css/parsley.css') !!}
 	{!! Html::style('css/select2.min.css') !!}
 
 @endsection
@@ -27,15 +28,15 @@
 			<h1>Dodawanie nowego lekarza</h1>
 			<hr />
 
-			{!! Form::open(['route' => 'doctors.store', 'files' => true]) !!}
+			{!! Form::open(['route' => 'doctors.store', 'files' => true, 'data-parsley-validate' => '']) !!}
 				{!! Form::label('academic_title', 'Tytuł:') !!}
-				{!! Form::text('academic_title', null, ['class' => 'form-control']) !!}
+				{!! Form::text('academic_title', null, ['class' => 'form-control', 'maxlength' => '64']) !!}
 				
 				{!! Form::label('first_name', 'Imię:') !!}
-				{!! Form::text('first_name', null, ['class' => 'form-control']) !!}
+				{!! Form::text('first_name', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '64']) !!}
 				
 				{!! Form::label('last_name', 'Nazwisko:') !!}
-				{!! Form::text('last_name', null, ['class' => 'form-control']) !!}
+				{!! Form::text('last_name', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '64']) !!}
 
 				{!! Form::label('specialization_id', 'Specjalizacja') !!}
 				<select name="specialization_id" class="form-control">
@@ -68,6 +69,7 @@
 
 @section('javascripts')
 
+	{!! Html::script('js/parsley.min.js') !!}
 	{!! Html::script('js/select2.min.js') !!}
 
 	<script>

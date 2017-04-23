@@ -4,20 +4,22 @@
 
 @section('stylesheets')
 
+	{!! Html::style('css/parsley.css') !!}
+
 @endsection
 
 @section('content')
 
 	<div class="row">
-		{!! Form::model($facility, ['route' => ['facilities.update', $facility->id], 'method' => 'PUT']) !!}
+		{!! Form::model($facility, ['route' => ['facilities.update', $facility->id], 'method' => 'PUT', 'data-parsley-validate' => '']) !!}
 		<div class="col-md-8">
 			<h1>Edycja placówki</h1>
 			<hr />
 			{!! Form::label('city', 'Miasto:') !!}
-			{!! Form::text('city', null, ['class' => 'form-control']) !!}
+			{!! Form::text('city', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '64']) !!}
 				
 			{!! Form::label('address', 'Adres:') !!}
-			{!! Form::text('address', null, ['class' => 'form-control']) !!}
+			{!! Form::text('address', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '64']) !!}
 		</div>
 		
 		<div class="col-md-4">
@@ -34,5 +36,11 @@
 		</div>
 		{!! Form::close() !!}
 	</div>
+
+@endsection
+
+@section('javascripts')
+
+	{!! Html::script('js/parsley.min.js') !!}
 
 @endsection

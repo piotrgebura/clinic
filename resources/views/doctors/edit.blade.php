@@ -4,6 +4,7 @@
 
 @section('stylesheets')
 
+	{!! Html::style('css/parsley.css') !!}
 	{!! Html::style('css/select2.min.css') !!}
 
 @endsection
@@ -23,18 +24,18 @@
 @section('content')
 
 	<div class="row">
-		{!! Form::model($doctor, ['route' => ['doctors.update', $doctor->id], 'files' => true, 'method' => 'PUT']) !!}
+		{!! Form::model($doctor, ['route' => ['doctors.update', $doctor->id], 'files' => true, 'method' => 'PUT', 'data-parsley-validate' => '']) !!}
 		<div class="col-md-8">
 			<h1>Edycja lekarza</h1>
 			<hr />
 			{!! Form::label('academic_title', 'Tytuł:') !!}
-			{!! Form::text('academic_title', null, ['class' => 'form-control']) !!}
+			{!! Form::text('academic_title', null, ['class' => 'form-control', 'maxlength' => '64']) !!}
 				
 			{!! Form::label('first_name', 'Imię:') !!}
-			{!! Form::text('first_name', null, ['class' => 'form-control']) !!}
+			{!! Form::text('first_name', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '64']) !!}
 				
 			{!! Form::label('last_name', 'Nazwisko:') !!}
-			{!! Form::text('last_name', null, ['class' => 'form-control']) !!}
+			{!! Form::text('last_name', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '64']) !!}
 
 			{!! Form::label('specialization_id', 'Specjalizacja') !!}
 			{!! Form::select('specialization_id', $specializations, null, ['class' => 'form-control']) !!}
@@ -68,6 +69,7 @@
 
 @section('javascripts')
 
+	{!! Html::script('js/parsley.min.js') !!}
 	{!! Html::script('js/select2.min.js') !!}
 
 	<script>
