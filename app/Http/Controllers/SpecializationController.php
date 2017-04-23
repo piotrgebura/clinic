@@ -22,7 +22,7 @@ class SpecializationController extends Controller
      */
     public function index()
     {
-        $specializations = Specialization::all();
+        $specializations = Specialization::orderBy('name')->get();
 
         return view('specializations.index', ['specializations' => $specializations]);
     }
@@ -42,6 +42,7 @@ class SpecializationController extends Controller
         $specialization = new Specialization();
         
         $specialization->name = $request->name;
+        $specialization->description = $request->description;
         
         $specialization->save();
         
@@ -92,6 +93,7 @@ class SpecializationController extends Controller
         $specialization = Specialization::find($id);
         
         $specialization->name = $request->name;
+        $specialization->description = $request->description;
         
         $specialization->save();
         

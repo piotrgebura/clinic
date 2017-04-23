@@ -17,6 +17,10 @@ html, body {
   	height: 50px;
   	clear:both;
   	padding-top:20px;
+}
+
+.d-inline {
+	display:inline;
 } 
 
 .btn-default-top-spacing {
