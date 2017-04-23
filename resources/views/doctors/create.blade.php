@@ -40,7 +40,7 @@
 
 				{!! Form::label('specialization_id', 'Specjalizacja') !!}
 				<select name="specialization_id" class="form-control">
-					<option value="null"></option>
+					<option selected></option>
 					@foreach ($specializations as $specialization)
 						<option value="{{ $specialization->id }}">{{ $specialization->name }}</option>
 					@endforeach
