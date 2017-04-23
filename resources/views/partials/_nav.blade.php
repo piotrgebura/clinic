@@ -16,6 +16,7 @@
       <ul class="nav navbar-nav">
         <li class="{{ Request::is('/') ? 'active' : ''}}"><a href="{{ route('home') }}">Home</a></li>
        	<li class="{{ Request::is('about') ? 'active' : ''}}"><a href="{{ route('about') }}">O nas</a></li>
+        <li class="{{ Request::is('services/*') ? 'active' : ''}}"><a href="{{ route('services.specializations') }}">Usługi</a></li>
         <li class="{{ Request::is('contact') ? 'active' : ''}}"><a href="{{ route('contact') }}">Kontakt</a></li>
       </ul>
       

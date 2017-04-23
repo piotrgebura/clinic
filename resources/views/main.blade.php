@@ -8,20 +8,26 @@
 	
 	<body>
 	
-		@include('partials._nav')	
+		<div class="wrap">
 		
-		<div class="container">
-			@include('partials._messages')
-
-			@yield('content')
+			@include('partials._nav')	
 			
-			@include('partials._footer')
+			<div class="container">
+				@include('partials._messages')
+
+				@yield('content')
+				
+			</div>
+
 		</div>
+
+		@include('partials._footer')
 		
 		
 		@include('partials._javascript')
 	
 		@yield('javascripts')
-	
+
+
 	</body>
 </html>
