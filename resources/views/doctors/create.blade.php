@@ -39,12 +39,7 @@
 				{!! Form::text('last_name', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '64']) !!}
 
 				{!! Form::label('specialization_id', 'Specjalizacja') !!}
-				<select name="specialization_id" class="form-control">
-					<option selected></option>
-					@foreach ($specializations as $specialization)
-						<option value="{{ $specialization->id }}">{{ $specialization->name }}</option>
-					@endforeach
-				</select>
+				{!! Form::select('specialization_id', $specializations, null, ['class' => 'form-control']) !!}
 
 				{!! Form::label('facilities', 'Placówki') !!}
 				<select name="facilities[]" class="form-control select2-facilities" multiple="multiple">

@@ -38,9 +38,13 @@ class DoctorController extends Controller
     public function create()
     {
         $specializations = Specialization::all();
+        $specializations_choice = array(null => '');
+        foreach ($specializations as $specialization) {
+            $specializations_choice[$specialization->id] = $specialization->name;
+        }
         $facilities = Facility::all();
 
-        return view('doctors.create', ['specializations' => $specializations, 'facilities' => $facilities]);
+        return view('doctors.create', ['specializations' => $specializations_choice, 'facilities' => $facilities]);
     }
 
     /**
