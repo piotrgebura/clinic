@@ -37,6 +37,9 @@
 					{!! Form::label('name', 'Nazwa:') !!}
 					{!! Form::text('name', null, ['class' => 'form-control']) !!}
 
+					{!! Form::label('description', 'Opis:') !!}
+					{!! Form::textarea('description', null, ['class' => 'form-control']) !!}
+
 					{!! Form::submit('Dodaj nową specjalizację', ['class' => 'btn btn-primary btn-block btn-default-top-spacing']) !!}
 				{!! Form::close() !!}
 			</div>

@@ -36,7 +36,7 @@ class SpecializationController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, array(
-                'name' => 'required|max:64'
+                'name' => 'required|max:64|unique:specializations,name'
         ));
         
         $specialization = new Specialization();
@@ -87,7 +87,7 @@ class SpecializationController extends Controller
     public function update(Request $request, $id)
     {
          $this->validate($request, array(
-                'name' => 'required|max:64'
+                'name' => "required|max:64|unique:specializations,name,$id",
         ));
         
         $specialization = Specialization::find($id);

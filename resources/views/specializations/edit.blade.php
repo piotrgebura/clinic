@@ -11,6 +11,9 @@
 			<hr />
 			{!! Form::label('name', 'Nazwa:') !!}
 			{!! Form::text('name', null, ['class' => 'form-control']) !!}
+
+			{!! Form::label('description', 'Opis:') !!}
+			{!! Form::textarea('description', null, ['class' => 'form-control']) !!}
 		</div>
 		
 		<div class="col-md-4">

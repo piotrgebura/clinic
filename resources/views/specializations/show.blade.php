@@ -7,6 +7,7 @@
 	<div class="row">
 		<div class="col-md-8">
 			<h1>{{ $specialization->name }} <small>{{ $specialization->doctors()->count() }} lekarz(y)</small> </h1>
+			<p>{{ $specialization->description }}</p>
 			<table class="table">
 				<thead>
 					<th>Id</th>
