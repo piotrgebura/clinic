@@ -17,11 +17,15 @@
 		    <form action="{{ url('contact') }}" method="POST">
 		        {!! csrf_field() !!}
 		       
-	            <label name="email">Email:</label>
-	            <input id="email" name="email" class="form-control">
+	            @if (Auth::guard('web')->check())
+	            	<input type="hidden" id="email" name="email" class="form-control" value="{{ Auth::user()->email }}">
+	            @else
+	           		<label name="email">Email:</label>
+	            	<input type="email" id="email" name="email" class="form-control">
+	            @endif
 
 	      		<label name="subject">Tytuł:</label>
-	            <input id="subject" name="subject" class="form-control">
+	            <input type="text" id="subject" name="subject" class="form-control">
 	       
 	            <label name="message">Treść:</label>
 	            <textarea id="message" name="message" class="form-control"></textarea>

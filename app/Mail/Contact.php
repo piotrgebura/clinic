@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Auth;
 
 class Contact extends Mailable
 {
@@ -34,8 +35,9 @@ class Contact extends Mailable
      */
     public function build()
     {
+        $sender_name = (Auth::guard('web')->check() ? Auth::user()->name : $this->email);
         return $this->markdown('emails.contact')
-                    ->from($this->email, $this->email)
+                    ->from($this->email, $sender_name)
                     ->subject($this->subject);
     }
 }
