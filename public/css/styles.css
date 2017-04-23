@@ -32,8 +32,9 @@ html, body {
 	margin:0px 10px 0px 0px
 }
 
-.dector-description {
-	margin:0px
+.doctor-description {
+	margin:0px;
+	font-size:20px;
 }
 
 .doctor-facilities {

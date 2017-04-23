@@ -13,7 +13,7 @@
 				<img src="{{ asset("images/$doctor->image") }}" class="doctor-image pull-left" />
 			@endif
 		
-			<p class="dector-description">{!! $doctor->description !!}</p>
+			<div class="doctor-description">{!! $doctor->description !!}</div>
 
 			@if ($doctor->facilities()->count())
 				<div class="doctor-facilities">

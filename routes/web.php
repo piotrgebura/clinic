@@ -32,6 +32,13 @@ Route::get('/about', 'PagesController@getAbout')->name('about');
 Route::get('/contact', 'PagesController@getContact')->name('contact');
 Route::post('/contact', 'PagesController@postContact');
 Route::get('/', 'PagesController@getIndex')->name('home');
+
 Route::resource('doctors', 'DoctorController');
 Route::resource('specializations', 'SpecializationController', ['except' => ['create']]);
 Route::resource('facilities', 'FacilityController');
+
+Route::prefix('services')->group(function(){
+	Route::get('/specializations', 'ServiceController@specializationsIndex')->name('services.specializations');
+	Route::get('/specializations/{specialization}', 'ServiceController@specializationsShow')->name('services.specializations.show');
+	Route::get('/doctors/{doctor}', 'ServiceController@doctorsShow')->name('services.doctors.show');
+});
