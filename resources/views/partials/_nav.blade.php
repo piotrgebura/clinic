@@ -8,13 +8,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Klinika</a>
+      <a class="navbar-brand" href="#">Clinic App</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="{{ Request::is('/') ? 'active' : ''}}"><a href="{{ route('home') }}">Home</a></li>
+        <li class="{{ Request::is('/') ? 'active' : ''}}"><a href="{{ route('home') }}">Strona główna</a></li>
        	<li class="{{ Request::is('about') ? 'active' : ''}}"><a href="{{ route('about') }}">O nas</a></li>
         <li class="{{ Request::is('services/*') ? 'active' : ''}}"><a href="{{ route('services.specializations') }}">Usługi</a></li>
         <li class="{{ Request::is('contact') ? 'active' : ''}}"><a href="{{ route('contact') }}">Kontakt</a></li>
