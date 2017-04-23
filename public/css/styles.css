@@ -19,6 +19,10 @@ html, body {
   	padding-top:20px;
 }
 
+.no-decoration {
+	text-decoration: none !important;
+}
+
 .d-inline {
 	display:inline;
 } 
@@ -43,6 +47,9 @@ html, body {
 }
 
 .doctor-link {
-	text-decoration: none !important;
 	color: #333000 !important;
 }
+
+.list-technologies a {
+	color: #333000 !important;
+} 
