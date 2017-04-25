@@ -9,19 +9,27 @@
 		<hr>
 		
 		{!! Form::open() !!}
-			{{ Form::label('name', "Nazwa:") }}
-			{{ Form::text('name', null, ['class' => 'form-control']) }}
+			<div class="form-group">
+				{{ Form::label('name', "Nazwa:") }}
+				{{ Form::text('name', null, ['class' => 'form-control']) }}
+			</div>
 			
-			{{ Form::label('email', "Email:") }}
-			{{ Form::text('email', null, ['class' => 'form-control']) }}
+			<div class="form-group">
+				{{ Form::label('email', "Email:") }}
+				{{ Form::text('email', null, ['class' => 'form-control']) }}
+			</div>
 			
-			{{ Form::label('password', "Hasło:") }}
-			{{ Form::password('password', ['class' => 'form-control']) }}
+			<div class="form-group">
+				{{ Form::label('password', "Hasło:") }}
+				{{ Form::password('password', ['class' => 'form-control']) }}
+			</div>
 			
-			{{ Form::label('password_confirmation', "Potwierdź hasło:") }}
-			{{ Form::password('password_confirmation', ['class' => 'form-control']) }}
+			<div class="form-group">
+				{{ Form::label('password_confirmation', "Potwierdź hasło:") }}
+				{{ Form::password('password_confirmation', ['class' => 'form-control']) }}
+			</div>
 			
-			{{ Form::submit('Zarejestruj', ['class' => 'btn btn-primary btn-block btn-default-top-spacing']) }}
+			{{ Form::submit('Zarejestruj', ['class' => 'btn btn-primary btn-block']) }}
 		{!! Form::close() !!}
 	</div>
 

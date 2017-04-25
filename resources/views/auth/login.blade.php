@@ -9,14 +9,20 @@
 		<hr>
 		
 		{!! Form::open() !!}		
-			{{ Form::label('email', "Email:") }}
-			{{ Form::text('email', null, ['class' => 'form-control']) }}
 			
-			{{ Form::label('password', "Hasło:") }}
-			{{ Form::password('password', ['class' => 'form-control']) }}
+			<div class="form-group">
+				{{ Form::label('email', "Email:") }}
+				{{ Form::text('email', null, ['class' => 'form-control']) }}
+			</div>
+			
+			<div class="form-group">
+				{{ Form::label('password', "Hasło:") }}
+				{{ Form::password('password', ['class' => 'form-control']) }}
+			</div>
 
-			<br />
-			{{ Form::checkbox('remember') }}{{ Form::label('remember', 'Zapamiętaj mnie') }}
+			<div class="form-group">
+				{{ Form::checkbox('remember') }}{{ Form::label('remember', 'Zapamiętaj mnie') }}
+			</div>
 
 			{{ Form::submit('Zaloguj', ['class' => 'btn btn-primary btn-block']) }}
 
