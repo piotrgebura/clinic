@@ -40,13 +40,17 @@
 			<div class="well">
 				<h2>Nowa specjalizacja</h2>			
 				{!! Form::open(['route' => ['specializations.store'], 'method' => 'POST', 'data-parsley-validate' => '']) !!}
-					{!! Form::label('name', 'Nazwa:') !!}
-					{!! Form::text('name', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '64']) !!}
+					<div class="form-group">
+						{!! Form::label('name', 'Nazwa:') !!}
+						{!! Form::text('name', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '64']) !!}
+					</div>
 
-					{!! Form::label('description', 'Opis:') !!}
-					{!! Form::textarea('description', null, ['class' => 'form-control']) !!}
+					<div class="form-group">
+						{!! Form::label('description', 'Opis:') !!}
+						{!! Form::textarea('description', null, ['class' => 'form-control']) !!}
+					</div>
 
-					{!! Form::submit('Dodaj nową specjalizację', ['class' => 'btn btn-primary btn-block btn-default-top-spacing']) !!}
+					{!! Form::submit('Dodaj nową specjalizację', ['class' => 'btn btn-primary btn-block']) !!}
 				{!! Form::close() !!}
 			</div>
 		</div>

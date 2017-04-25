@@ -15,11 +15,16 @@
 		<div class="col-md-8">
 			<h1>Edycja placówki</h1>
 			<hr />
-			{!! Form::label('city', 'Miasto:') !!}
-			{!! Form::text('city', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '64']) !!}
+			
+			<div class="form-group">
+				{!! Form::label('city', 'Miasto:') !!}
+				{!! Form::text('city', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '64']) !!}
+			</div>
 				
-			{!! Form::label('address', 'Adres:') !!}
-			{!! Form::text('address', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '64']) !!}
+			<div class="form-group">
+				{!! Form::label('address', 'Adres:') !!}
+				{!! Form::text('address', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '64']) !!}
+			</div>
 		</div>
 		
 		<div class="col-md-4">

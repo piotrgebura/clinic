@@ -16,13 +16,17 @@
 			<hr />
 
 			{!! Form::open(['route' => 'facilities.store', 'files' => true, 'data-parsley-validate' => '']) !!}
-				{!! Form::label('city', 'Miasto:') !!}
-				{!! Form::text('city', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '64']) !!}
+				<div class="form-group">
+					{!! Form::label('city', 'Miasto:') !!}
+					{!! Form::text('city', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '64']) !!}
+				</div>
 				
-				{!! Form::label('address', 'Adres:') !!}
-				{!! Form::text('address', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '64']) !!}
+				<div class="form-group">
+					{!! Form::label('address', 'Adres:') !!}
+					{!! Form::text('address', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '64']) !!}
+				</div>
 				
-				{!! Form::submit('Dodaj', ['class' => 'btn btn-success btn-lg btn-block btn-default-top-spacing']) !!}
+				{!! Form::submit('Dodaj', ['class' => 'btn btn-success btn-lg btn-block']) !!}
 			{!! Form::close() !!}
 		</div>
 

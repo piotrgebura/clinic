@@ -28,26 +28,41 @@
 		<div class="col-md-8">
 			<h1>Edycja lekarza</h1>
 			<hr />
-			{!! Form::label('academic_title', 'Tytuł:') !!}
-			{!! Form::text('academic_title', null, ['class' => 'form-control', 'maxlength' => '64']) !!}
+			
+			<div class="form-group">
+				{!! Form::label('academic_title', 'Tytuł:') !!}
+				{!! Form::text('academic_title', null, ['class' => 'form-control', 'maxlength' => '64']) !!}
+			</div>
 				
-			{!! Form::label('first_name', 'Imię:') !!}
-			{!! Form::text('first_name', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '64']) !!}
+			<div class="form-group">
+				{!! Form::label('first_name', 'Imię:') !!}
+				{!! Form::text('first_name', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '64']) !!}
+			</div>
 				
-			{!! Form::label('last_name', 'Nazwisko:') !!}
-			{!! Form::text('last_name', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '64']) !!}
+			<div class="form-group">
+				{!! Form::label('last_name', 'Nazwisko:') !!}
+				{!! Form::text('last_name', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '64']) !!}
+			</div>
 
-			{!! Form::label('specialization_id', 'Specjalizacja') !!}
-			{!! Form::select('specialization_id', $specializations, null, ['class' => 'form-control']) !!}
+			<div class="form-group">
+				{!! Form::label('specialization_id', 'Specjalizacja') !!}
+				{!! Form::select('specialization_id', $specializations, null, ['class' => 'form-control']) !!}
+			</div>
 
-			{!! Form::label('facilities', 'Placówki') !!}
-			{!! Form::select('facilities[]', $facilities, null, ['class' => 'form-control select2-facilities', 'multiple' => 'multiple']) !!}
+			<div class="form-group">
+				{!! Form::label('facilities', 'Placówki') !!}
+				{!! Form::select('facilities[]', $facilities, null, ['class' => 'form-control select2-facilities', 'multiple' => 'multiple']) !!}
+			</div>
 				
-			{!! Form::label('image', 'Zdjęcie') !!}
-			{!! Form::file('image') !!}
+			<div class="form-group">
+				{!! Form::label('image', 'Zdjęcie') !!}
+				{!! Form::file('image') !!}
+			</div>
 
-			{!! Form::label('description', 'Opis:') !!}
-			{!! Form::textarea('description', null, ['class' => 'form-control']) !!}
+			<div class="form-group">
+				{!! Form::label('description', 'Opis:') !!}
+				{!! Form::textarea('description', null, ['class' => 'form-control']) !!}
+			</div>
 		</div>
 		
 		<div class="col-md-4">

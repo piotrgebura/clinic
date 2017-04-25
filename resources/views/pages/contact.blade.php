@@ -17,18 +17,24 @@
 		    <form action="{{ url('contact') }}" method="POST">
 		        {!! csrf_field() !!}
 		       
-	            @if (Auth::guard('web')->check())
-	            	<input type="hidden" id="email" name="email" class="form-control" value="{{ Auth::user()->email }}">
-	            @else
-	           		<label name="email">Email:</label>
-	            	<input type="email" id="email" name="email" class="form-control">
-	            @endif
+	            <div class="form-group">
+		            @if (Auth::guard('web')->check())
+		            	<input type="hidden" id="email" name="email" class="form-control" value="{{ Auth::user()->email }}">
+		            @else	           		
+	           			<label name="email">Email:</label>
+	            		<input type="email" id="email" name="email" class="form-control">         	
+		            @endif
+	            </div>
 
-	      		<label name="subject">Tytuł:</label>
-	            <input type="text" id="subject" name="subject" class="form-control">
+	      		<div class="form-group">
+	      			<label name="subject">Tytuł:</label>
+	           	 <input type="text" id="subject" name="subject" class="form-control">
+	            </div>
 	       
-	            <label name="message">Treść:</label>
-	            <textarea id="message" name="message" class="form-control"></textarea>
+	            <div class="form-group">
+		            <label name="message">Treść:</label>
+		            <textarea id="message" name="message" class="form-control"></textarea>
+	            </div>
 
 	            <div class="g-recaptcha btn-h1-spacing" data-sitekey="{{ config('google.captcha.site_key') }}}"></div>
 		        

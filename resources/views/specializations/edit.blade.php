@@ -15,11 +15,16 @@
 		<div class="col-md-8">
 			<h1>Edycja specjalizacji</h1>
 			<hr />
-			{!! Form::label('name', 'Nazwa:') !!}
-			{!! Form::text('name', null, ['class' => 'form-control',  'required' => '', 'maxlength' => '64']) !!}
+			
+			<div class="form-group">
+				{!! Form::label('name', 'Nazwa:') !!}
+				{!! Form::text('name', null, ['class' => 'form-control',  'required' => '', 'maxlength' => '64']) !!}
+			</div>
 
-			{!! Form::label('description', 'Opis:') !!}
-			{!! Form::textarea('description', null, ['class' => 'form-control']) !!}
+			<div class="form-group">
+				{!! Form::label('description', 'Opis:') !!}
+				{!! Form::textarea('description', null, ['class' => 'form-control']) !!}
+			</div>
 		</div>
 		
 		<div class="col-md-4">

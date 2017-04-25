@@ -29,32 +29,46 @@
 			<hr />
 
 			{!! Form::open(['route' => 'doctors.store', 'files' => true, 'data-parsley-validate' => '']) !!}
-				{!! Form::label('academic_title', 'Tytuł:') !!}
-				{!! Form::text('academic_title', null, ['class' => 'form-control', 'maxlength' => '64']) !!}
+				<div class="form-group">
+					{!! Form::label('academic_title', 'Tytuł:') !!}
+					{!! Form::text('academic_title', null, ['class' => 'form-control', 'maxlength' => '64']) !!}
+				</div>
 				
-				{!! Form::label('first_name', 'Imię:') !!}
-				{!! Form::text('first_name', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '64']) !!}
+				<div class="form-group">
+					{!! Form::label('first_name', 'Imię:') !!}
+					{!! Form::text('first_name', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '64']) !!}
+				</div>
 				
-				{!! Form::label('last_name', 'Nazwisko:') !!}
-				{!! Form::text('last_name', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '64']) !!}
+				<div class="form-group">
+					{!! Form::label('last_name', 'Nazwisko:') !!}
+					{!! Form::text('last_name', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '64']) !!}
+				</div>
 
-				{!! Form::label('specialization_id', 'Specjalizacja') !!}
-				{!! Form::select('specialization_id', $specializations, null, ['class' => 'form-control']) !!}
+				<div class="form-group">
+					{!! Form::label('specialization_id', 'Specjalizacja') !!}
+					{!! Form::select('specialization_id', $specializations, null, ['class' => 'form-control']) !!}
+				</div>
 
-				{!! Form::label('facilities', 'Placówki') !!}
-				<select name="facilities[]" class="form-control select2-facilities" multiple="multiple">
-					@foreach ($facilities as $facility)
-						<option value="{{ $facility->id }}">{{ $facility->city }} {{ $facility->address }}</option>
-					@endforeach
-				</select>
+				<div class="form-group">
+					{!! Form::label('facilities', 'Placówki') !!}
+					<select name="facilities[]" class="form-control select2-facilities" multiple="multiple">
+						@foreach ($facilities as $facility)
+							<option value="{{ $facility->id }}">{{ $facility->city }} {{ $facility->address }}</option>
+						@endforeach
+					</select>
+				</div>
 				
-				{!! Form::label('image', 'Zdjęcie') !!}
-				{!! Form::file('image') !!}
+				<div class="form-group">
+					{!! Form::label('image', 'Zdjęcie') !!}
+					{!! Form::file('image') !!}
+				</div>
 
-				{!! Form::label('description', 'Opis:') !!}
-				{!! Form::textarea('description', null, ['class' => 'form-control']) !!}
+				<div class="form-group">
+					{!! Form::label('description', 'Opis:') !!}
+					{!! Form::textarea('description', null, ['class' => 'form-control']) !!}
+				</div>
 				
-				{!! Form::submit('Dodaj', ['class' => 'btn btn-success btn-lg btn-block btn-default-top-spacing']) !!}
+				{!! Form::submit('Dodaj', ['class' => 'btn btn-success btn-lg btn-block']) !!}
 			{!! Form::close() !!}
 		</div>
 
