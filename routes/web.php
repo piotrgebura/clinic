@@ -13,7 +13,7 @@
 
 Route::get('/auth/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('/auth/login', 'Auth\LoginController@login');
-Route::get('/auth/logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('/auth/logout', 'Auth\LoginController@userLogout')->name('logout');
 
 Route::get('/auth/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('/auth/register', 'Auth\RegisterController@register');
@@ -26,6 +26,7 @@ Route::post('/password/reset', 'Auth\ResetPasswordController@reset');
 Route::prefix('admin')->group(function(){
 	Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
 	Route::post('/login', 'Auth\AdminLoginController@login');
+	Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
 });
 
 Route::get('/about', 'PagesController@getAbout')->name('about');
