@@ -1,5 +1,6 @@
 html, body {
 	height:100%;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .wrap {
@@ -8,7 +9,7 @@ html, body {
 
 .container {
 	overflow:auto;
-  	padding-bottom:50px; 
+  	padding-bottom:50px;
 }
 
 .footer {
@@ -53,3 +54,7 @@ html, body {
 .list-technologies a {
 	color: #333000 !important;
 } 
+
+.form-control {
+	border: 1px solid #ccc;
+}
