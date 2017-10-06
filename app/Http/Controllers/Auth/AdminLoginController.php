@@ -31,7 +31,9 @@ class AdminLoginController extends Controller
     		return redirect()->intended(route('home'));
     	}
 
-    	return redirect()->back()->withInput($request->only('email', 'remember'));
+        $errors = ['email' => trans('auth.failed')];
+
+    	return redirect()->back()->withInput($request->only('email', 'remember'))->withErrors($errors);
     }
 
     public function logout()
