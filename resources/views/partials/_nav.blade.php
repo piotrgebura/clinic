@@ -32,7 +32,7 @@
                 <li role="separator" class="divider"></li>
                 <li><a href="{{ route('admin.logout') }}">Wyloguj</a></li>
               </ul>
-            </li>
+           </li>
         @elseif (Auth::guard('web')->check())
           
             <li class="dropdown">
