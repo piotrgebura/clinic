@@ -26,6 +26,8 @@
 
 			{{ Form::submit('Zaloguj', ['class' => 'btn btn-primary btn-block']) }}
 
+			<p><a href="{{ route('admin.password.request') }}" class="btn btn-link">Zapomniałem hasła</a></p>	
+
 		{!! Form::close() !!}
 	</div>
 
