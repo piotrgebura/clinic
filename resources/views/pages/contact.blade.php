@@ -36,7 +36,7 @@
 		            <textarea id="message" name="message" class="form-control"></textarea>
 	            </div>
 
-	            <div class="g-recaptcha btn-h1-spacing" data-sitekey="{{ config('google.captcha.site_key') }}}"></div>
+	            <div class="g-recaptcha btn-h1-spacing" data-sitekey="{{ config('google.captcha.site_key') }}"></div>
 		        
 		        <input type="submit" value="Wyślij wiadomość" class="btn btn-success btn-lg btn-block btn-default-top-spacing">
 		    </form>
