@@ -37,6 +37,7 @@ class PagesController extends Controller
 		$token = $request->input('g-recaptcha-response');
 
 		if ($token) {
+			//$client = new Client(['verify' => 'C:\Programy\wamp\bin\php\php7.3.12\extras\ssl\cacert.pem']);
 			$client = new Client();
 			$response = $client->post('https://www.google.com/recaptcha/api/siteverify', [
 					'form_params' => array(
